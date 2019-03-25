@@ -1,3 +1,7 @@
+import { Address } from "./address.model";
+
+ 
+
 export class User {
     id: number;
     username: string;
@@ -5,4 +9,7 @@ export class User {
     firstName: string;
     lastName: string;
     companyname:string;
+    address:Address;
+
 }
+ 

@@ -1,12 +1,14 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { User } from '../models/user.model';
+import { Address } from '../models/address.model';
 
  
 @Injectable()
 export class UserService {
     constructor(private http: HttpClient) { }
 
+    public baseUrl:string="http://localhost:51902"
     getAll() {
         return this.http.get<User[]>('/api/user');
     }
@@ -16,8 +18,10 @@ export class UserService {
     }
 
     create(user: User) {
-
-        return this.http.post('/api/user', user);
+      
+       
+        console.log(user);
+        return this.http.post(this.baseUrl+'/api/user', user);
     }
 
     update(user: User) {
