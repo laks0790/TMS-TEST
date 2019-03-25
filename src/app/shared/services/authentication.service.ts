@@ -5,11 +5,14 @@ import 'rxjs/add/operator/map'
 
 @Injectable()
 export class AuthenticationService {
+
+    public baseUrl:string="http://localhost:51902"
     constructor(private http: HttpClient) { }
 
     login(username: string, password: string) {
-        return this.http.post<any>('/api/login/token',
-         { username: username, password: password, companyname: '' })
+        console.log(username + '' + password);
+        return this.http.post<any>(this.baseUrl+'/api/login/',
+        {username:username,password:password,companyname:''})
             .map(user => {
                 if (user && user.token) {
 

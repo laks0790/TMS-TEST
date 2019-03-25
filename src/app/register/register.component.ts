@@ -21,7 +21,7 @@ export class RegisterComponent {
     register() {
         console.log(this.model);
         this.loading = true;
-         this.model.address.
+       
         this.userService.create(this.model)
             .subscribe(
                 data => {
